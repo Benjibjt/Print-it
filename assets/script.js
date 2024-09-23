@@ -32,6 +32,23 @@ rightArrow.addEventListener('click', function() {
     console.log('Flèche droite cliquée');
 });
 
+// Gestion des bullet points (dots)
+const dotsContainer = document.querySelector('.dots');
+
+// Création des bullet points en fonction du nombre de slides
+slides.forEach((slide, index) => {
+	const dot = document.createElement('div');
+	dot.classList.add('dot');
+	
+	// Si c'est le premier slide, lui ajouter la classe 'dot_selected'
+	if (index === 0) {
+		dot.classList.add('dot_selected');
+	}
+	
+	// Ajouter le dot dans le conteneur .dots
+	dotsContainer.appendChild(dot);
+});
+
 
 
 
