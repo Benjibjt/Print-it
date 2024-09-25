@@ -28,20 +28,24 @@ const dotsContainer = document.querySelector('.dots');
 
 // Event listener pour la flèche gauche (précédente)
 leftArrow.addEventListener('click', function() {
-    // Aller à la diapositive précédente si ce n'est pas la première
-    if (currentSlide > 0) {
-        currentSlide--;  // Aller à la diapositive précédente
-        updateSlide(currentSlide);
+    // Aller à la diapositive précédente
+    if (currentSlide === 0) {
+        currentSlide = slides.length - 1;  // Si on est à la première diapositive, revenir à la dernière
+    } else {
+        currentSlide--;  // Sinon, aller à la diapositive précédente
     }
+    updateSlide(currentSlide);
 });
 
 // Event listener pour la flèche droite (suivante)
 rightArrow.addEventListener('click', function() {
-    // Aller à la diapositive suivante si ce n'est pas la dernière
-    if (currentSlide < slides.length - 1) {
-        currentSlide++;  // Aller à la diapositive suivante
-        updateSlide(currentSlide);
+    // Aller à la diapositive suivante
+    if (currentSlide === slides.length - 1) {
+        currentSlide = 0;  // Si on est à la dernière diapositive, revenir à la première
+    } else {
+        currentSlide++;  // Sinon, aller à la diapositive suivante
     }
+    updateSlide(currentSlide);
 });
 
 // Création des bullet points en fonction du nombre de slides
